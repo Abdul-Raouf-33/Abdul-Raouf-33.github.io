@@ -1,0 +1,12 @@
+@use "../util/media" as media;
+
+h1 {
+  font-size: calc(32px + 4vw);
+
+  //   @include media.breakpoints(tablet) {
+  //     font-size: 4.5rem;
+  //   }
+  //   @include media.breakpoints(monitor) {
+  //     font-size: 6rem;
+  //   }
+}

@@ -1,0 +1,23 @@
+@use "functions" as f;
+
+$breakpoints-up: (
+  "tablet": f.em(650),
+  "monitor": f.em(1080),
+);
+
+@mixin breakpoints($changer) {
+  @media (min-width: map-get($breakpoints-up, $changer)) {
+    @content;
+  }
+}
+
+$breakpoints-down: (
+  "tablet_down": f.em(649.98),
+  "monitor_down": f.em(1079.98),
+);
+
+@mixin breakpoints_down($changer) {
+  @media (max-width: map-get($breakpoints-down, $changer)) {
+    @content;
+  }
+}

@@ -1,0 +1,114 @@
+@use "globals" as g;
+@use "fonts" as font;
+@use "util" as u;
+
+.showcase {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(255, 0, 123, 0.2), rgba(255, 0, 123, 0.2)),
+    url("https://images.unsplash.com/photo-1513279922550-250c2129b13a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: min(100% - 40px, 1180px);
+    margin-inline: auto;
+    height: 60px;
+    padding-top: 2em;
+  }
+
+  &__logo {
+    width: 60px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__menu {
+    visibility: hidden;
+    background: g.$main;
+    padding: 3rem;
+    transform: translateY(4rem) scaleY(0);
+    transform-origin: top;
+    width: 100%;
+    align-self: flex-start;
+    transition: all 0.5s ease-in;
+    opacity: 0;
+    border-radius: u.rem(5);
+    z-index: 1;
+
+    @include u.breakpoints(monitor) {
+      visibility: visible;
+      background: transparent;
+      padding: 0;
+      transform: translateY(0) scaleY(1);
+      transform-origin: none;
+      width: auto;
+      align-self: center;
+      transition: all 0.3s ease-in;
+      opacity: 1;
+      border-radius: 5px;
+      display: flex;
+      gap: 2em;
+    }
+  }
+
+  &__menuItems {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+
+    @include u.breakpoints(monitor) {
+      border: none;
+      padding: none;
+      margin: none;
+    }
+  }
+
+  &__menuBtn {
+    color: #fff;
+    font-size: 2rem;
+
+    @include u.breakpoints(monitor) {
+      display: none;
+    }
+  }
+
+  a {
+    color: #fff;
+    font-family: font.$raleway;
+  }
+
+  // CONTENT
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+  }
+
+  &__title {
+    color: #fff;
+    font-family: font.$oleo;
+    margin-bottom: 0.25em;
+    font-weight: lighter;
+  }
+
+  &__pinkBtn {
+    padding-left: 20vw;
+  }
+}
+
+// MODIFIERS
+.list_display {
+  transform: translateY(4rem) scaleY(1);
+  opacity: 1;
+  visibility: visible;
+}

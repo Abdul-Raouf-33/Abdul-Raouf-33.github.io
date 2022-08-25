@@ -1,0 +1,20 @@
+@use "media" as media;
+@use "../fonts/fonts" as font;
+@use "../globals/colors" as color;
+
+.main_btn {
+  padding: 0.8em 1.4em;
+  font-size: calc(7px + 1vw);
+  background-color: color.$main;
+  color: #fff;
+  font-family: font.$raleway;
+  border-radius: 3px;
+  display: inline-block;
+
+  // @include media.breakpoints(tablet) {
+  //   font-size: 18px;
+  // }
+  // @include media.breakpoints(monitor) {
+  //   font-size: 20px;
+  // }
+}
